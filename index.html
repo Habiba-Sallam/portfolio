@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habiba Sallam | QA Engineer</title>
+    <style>
+        :root {
+            --bg-color: #0d1117; 
+            --card-bg: #161b22;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-color: #6a1b29; 
+            --accent-hover: #8b2336;
+            --border-color: #30363d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: var(--accent-color); transition: 0.3s; }
+        a:hover { color: var(--accent-hover); }
+        nav { display: flex; justify-content: space-between; padding: 20px 10%; background: rgba(13, 17, 23, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
+        nav .logo { font-size: 1.5rem; font-weight: bold; color: #fff; font-family: 'Courier New', Courier, monospace; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav ul li a { color: var(--text-main); font-weight: 500; }
+        nav ul li a:hover { color: var(--accent-color); }
+        section { padding: 100px 10% 80px; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-size: 2.2rem; color: #fff; margin-bottom: 50px; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+        #hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        #hero .hero-content { flex: 1; text-align: left; }
+        #hero .hero-image-container { flex: 0 0 300px; text-align: center; }
+        #hero img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent-color); box-shadow: 0 0 20px rgba(106, 27, 41, 0.4); }
+        #hero h1 { font-size: 4rem; color: #fff; line-height: 1.2; margin-bottom: 5px; }
+        #hero h2 { font-size: 2rem; color: var(--text-muted); font-weight: 400; margin-bottom: 20px; }
+        #hero h2 span { font-size: 1.2rem; font-style: italic; color: var(--accent-color); }
+        #hero .usp { font-size: 1.6rem; color: #fff; font-style: italic; margin-bottom: 35px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
+        .btn-group { display: flex; gap: 15px; }
+        .btn { display: inline-block; padding: 12px 26px; background: var(--accent-color); color: #fff; border-radius: 5px; font-weight: bold; transition: 0.3s; margin-top: 10px; cursor: pointer; border: none; }
+        .btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-3px); }
+        .btn.secondary { background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); }
+        .btn.secondary:hover { background: rgba(106, 27, 41, 0.1); color: #fff; border-color: var(--accent-hover); }
+        #about p { font-size: 1.15rem; max-width: 850px; color: var(--text-muted); margin-bottom: 25px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .skills-category { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; }
+        .skills-category h3 { color: #fff; margin-bottom: 20px; border-bottom: 1px solid var(--accent-color); padding-bottom: 5px; display: inline-block;}
+        .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: rgba(106, 27, 41, 0.15); border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; color: #fff; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
+        .project-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 30px; transition: 0.3s; position: relative; }
+        .project-card:hover { transform: translateY(-7px); border-color: var(--accent-color); }
+        .project-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.6rem; }
+        .project-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1rem; }
+        .embedded-table-container { display: none; margin-top: 40px; background: #fff; border-radius: 8px; color: #333; padding: 20px; overflow-x: auto; font-size: 0.9rem; }
+        .embedded-table-container h4 { color: #6a1b29; margin-bottom: 15px; text-align: center; }
+        .embedded-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        .embedded-table th, .embedded-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .embedded-table th { background-color: #f2f2f2; color: #555; font-weight: bold; }
+        .embedded-table tr:nth-child(even) { background-color: #f9f9f9; }
+        .embedded-table .status-pass { color: green; font-weight: bold; }
+        #contact .rosha-text { font-size: 1.3rem; color: #fff; margin-bottom: 30px; font-style: italic; max-width: 800px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
+        .contact-links { display: flex; flex-direction: column; gap: 15px; font-size: 1.25rem; }
+        .contact-links a { display: flex; align-items: center; gap: 12px; color: var(--text-muted); }
+        .contact-links a:hover { color: var(--accent-color); }
+        footer { text-align: center; padding: 30px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+        .slide-left { opacity: 0; transform: translateX(-80px); transition: all 0.8s ease-out; }
+        .slide-right { opacity: 0; transform: translateX(80px); transition: all 0.8s ease-out; }
+        .slide-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+        .show { opacity: 1; transform: translateX(0) translateY(0); }
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            #hero { flex-direction: column; text-align: center; padding-top: 60px; }
+            #hero .hero-content { order: 2; text-align: center; }
+            #hero h1 { font-size: 3rem; }
+            #hero img { width: 220px; height: 220px; margin-top: -30px; order: 1;}
+            .btn-group { justify-content: center; flex-wrap: wrap; }
+            section { padding: 70px 5% 50px; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Habiba Sallam</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="hero">
+        <div class="hero-content slide-left">
+            <h1>Hi, I'm Habiba Sallam.</h1>
+            <h2>Software QA Engineer <br> <span>(Actually, I engineer things too)</span></h2>
+            <div class="usp">"Finding Bugs before They Find You."</div>
+            <div class="btn-group">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="cv.pdf" class="btn secondary" target="_blank">View CV</a>
+            </div>
+        </div>
+        <div class="hero-image-container slide-right">
+            <img src="profile.jpeg" onerror="this.onerror=null; this.src='profile.jpg';" alt="Habiba Sallam Photo" />
+        </div>
+    </section>
+    <section id="about">
+        <h2 class="section-title slide-left">About Me</h2>
+        <div class="slide-up">
+            <p>I am a dedicated Computer Science and Engineering student who sees quality assurance not just as a final check, but as a proactive engineering practice built into the development lifecycle.</p>
+            <p>Currently advancing my technical expertise through the Digital Egypt Pioneers Initiative (DEPI) in the Software Testing track, I excel at designing precise test cases, executing thorough manual tests, and discovering critical defects.</p>
+            <p>Beyond testing, my leadership role as Vice Head of HR at IEEE Menoufia Student Branch has sharpened my interpersonal skills—making me highly effective in team collaboration, conflict resolution, and Agile task management. I am ready to bring this blend of technical rigor and interpersonal effectiveness to freelance projects and testing teams.</p>
+        </div>
+    </section>
+    <section id="skills">
+        <h2 class="section-title slide-left">Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skills-category slide-up">
+                <h3>Technical Skills</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">Manual Testing</div>
+                    <div class="skill-tag">Test Cases Creation</div>
+                    <div class="skill-tag">Bug Reporting & Tracking</div>
+                    <div class="skill-tag">Agile Methodologies (Scrum)</div>
+                    <div class="skill-tag">SDLC & STLC</div>
+                    <div class="skill-tag">Jira / Trello</div>
+                    <div class="skill-tag">GitHub</div>
+                </div>
+            </div>
+            <div class="skills-category slide-up" style="transition-delay: 0.2s;">
+                <h3>Interpersonal Skills (IEEE/HR)</h3>
+                <div class="skills-list">
+                    <div class="skill-tag">Leadership</div>
+                    <div class="skill-tag">Team Management</div>
+                    <div class="skill-tag">Recruitment & Interviewing</div>
+                    <div class="skill-tag">Conflict Resolution</div>
+                    <div class="skill-tag">Public Speaking</div>
+                    <div class="skill-tag">Task Management</div>
+                    <div class="skill-tag">Critical Thinking</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <h2 class="section-title slide-left">Test Scenarios</h2>
+        <div class="projects-grid">
+            <div class="project-card slide-up">
+                <h3>Login Page Test Cases</h3>
+                <p>Designed comprehensive manual test cases covering boundary value analysis, positive/negative scenarios, security checks, and critical edge cases for a standard web-based authentication system.</p>
+                <button class="btn secondary" style="width: 100%;" onclick="toggleTestTable()">View Test Cases Table</button>
+            </div>
+        </div>
+        <div class="embedded-table-container" id="testCasesTable">
+            <h4>[Sample] Login Module Test Cases</h4>
+            <table class="embedded-table">
+                <thead>
+                    <tr><th>TC ID</th><th>Test Scenario</th><th>Test Steps</th><th>Expected Result</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>TC_01</td><td>Verify Valid Login</td><td>1. Enter valid username<br>2. Enter valid password<br>3. Click Login</td><td>User successfully directed to the homepage.</td><td class="status-pass">PASS</td></tr>
+                    <tr><td>TC_02</td><td>Verify Empty Fields</td><td>1. Leave both fields empty<br>2. Click Login</td><td>System displays validation errors for both fields.</td><td class="status-pass">PASS</td></tr>
+                    <tr><td>TC_03</td><td>Verify Invalid Password</td><td>1. Enter valid username<br>2. Enter invalid password<br>3. Click Login</td><td>System displays "Incorrect credentials" message.</td><td class="status-pass">PASS</td></tr>
+                    <tr><td>TC_04</td><td>Boundary: Long Password</td><td>1. Enter valid username<br>2. Enter password matching max length<br>3. Click Login</td><td>Login successful (if credentials match).</td><td class="status-pass">PASS</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section id="contact">
+        <h2 class="section-title slide-left">Let's Talk Quality</h2>
+        <div class="slide-up">
+            <p class="rosha-text">
+                Want to make sure your app doesn't crash and burn in production? Need someone to dissect your software and hunt down every last bug? Let's connect. I break your code today, so your users don't have to tomorrow.
+            </p>
+            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 600px;">
+                Open to manual/automated testing freelance opportunities, part-time QA roles, or collaborative engineering projects.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:habibasallam411@gmail.com" target="_blank">✉️ habibasallam411@gmail.com</a>
+                <a href="https://www.linkedin.com/in/habiba-sallam" target="_blank">🔗 linkedin.com/in/habiba-sallam</a>
+                <a href="https://github.com/Habiba-Sallam" target="_blank">💻 github.com/Habiba-Sallam</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        &copy; 2026 Habiba Sallam. Built with precision and a continuous QA mindset ☕.
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll('nav ul li a, #hero .btn').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            const animElements = document.querySelectorAll('.slide-left, .slide-right, .slide-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('show'); }
+                });
+            }, { threshold: 0.1 });
+            animElements.forEach(el => observer.observe(el));
+        });
+        function toggleTestTable() {
+            var tableContainer = document.getElementById("testCasesTable");
+            if (tableContainer.style.display === "none" || tableContainer.style.display === "") {
+                tableContainer.style.display = "block";
+                tableContainer.scrollIntoView({ behavior: 'smooth' });
+            } else { tableContainer.style.display = "none"; }
+        }
+    </script>
+</body>
+</html>
