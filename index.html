@@ -5,90 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habiba Sallam | QA Engineer</title>
     <style>
+        /* CSS Styling - Dark Theme with Tech Blue Accent */
         :root {
-            --bg-color: #0d1117; 
-            --card-bg: #161b22;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --accent-color: #6a1b29; 
-            --accent-hover: #8b2336;
-            --border-color: #30363d;
+            --bg-color: #0f172a; /* كحلي غامق جداً مريح للعين */
+            --card-bg: #1e293b; /* رمادي مزرق للكروت */
+            --text-main: #f8fafc; /* أبيض ناصع للقراءة */
+            --text-muted: #94a3b8; /* رمادي فاتح للتفاصيل */
+            --accent-color: #3b82f6; /* أزرق تكنولوجي مريح ومبهج */
+            --accent-hover: #2563eb;
+            --border-color: #334155;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        
         a { text-decoration: none; color: var(--accent-color); transition: 0.3s; }
         a:hover { color: var(--accent-hover); }
-        nav { display: flex; justify-content: space-between; padding: 20px 10%; background: rgba(13, 17, 23, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); }
+
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; padding: 20px 10%; background: rgba(15, 23, 42, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px); }
         nav .logo { font-size: 1.5rem; font-weight: bold; color: #fff; font-family: 'Courier New', Courier, monospace; }
         nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-        nav ul li a { color: var(--text-main); font-weight: 500; }
+        nav ul li a { color: var(--text-main); font-weight: 500; font-size: 0.95rem; }
         nav ul li a:hover { color: var(--accent-color); }
-        section { padding: 100px 10% 80px; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
-        .section-title { font-size: 2.2rem; color: #fff; margin-bottom: 50px; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+
+        /* Sections General */
+        section { padding: 90px 10% 70px; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-size: 2.2rem; color: #fff; margin-bottom: 40px; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; display: inline-block; }
+
+        /* Hero Section */
         #hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
         #hero .hero-content { flex: 1; text-align: left; }
         #hero .hero-image-container { flex: 0 0 300px; text-align: center; }
-        #hero img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 5px solid var(--accent-color); box-shadow: 0 0 20px rgba(106, 27, 41, 0.4); }
+        #hero img { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-color); box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2); }
+
         #hero h1 { font-size: 4rem; color: #fff; line-height: 1.2; margin-bottom: 5px; }
         #hero h2 { font-size: 2rem; color: var(--text-muted); font-weight: 400; margin-bottom: 20px; }
         #hero h2 span { font-size: 1.2rem; font-style: italic; color: var(--accent-color); }
-        #hero .usp { font-size: 1.6rem; color: #fff; font-style: italic; margin-bottom: 35px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
+        #hero .usp { font-size: 1.4rem; color: var(--text-main); font-style: italic; margin-bottom: 35px; border-left: 3px solid var(--accent-color); padding-left: 15px; background: rgba(59, 130, 246, 0.05); padding: 10px 15px; border-radius: 0 5px 5px 0;}
+        
         .btn-group { display: flex; gap: 15px; }
-        .btn { display: inline-block; padding: 12px 26px; background: var(--accent-color); color: #fff; border-radius: 5px; font-weight: bold; transition: 0.3s; margin-top: 10px; cursor: pointer; border: none; }
-        .btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-3px); }
-        .btn.secondary { background: transparent; border: 1px solid var(--accent-color); color: var(--accent-color); }
-        .btn.secondary:hover { background: rgba(106, 27, 41, 0.1); color: #fff; border-color: var(--accent-hover); }
+        .btn { display: inline-block; padding: 12px 26px; background: var(--accent-color); color: #fff; border-radius: 6px; font-weight: bold; transition: 0.3s; cursor: pointer; border: none; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        .btn:hover { background: var(--accent-hover); color: #fff; transform: translateY(-3px); box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4); }
+        .btn.secondary { background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); box-shadow: none; }
+        .btn.secondary:hover { background: rgba(59, 130, 246, 0.1); color: #fff; border-color: var(--accent-hover); }
+
+        /* About Section */
         #about p { font-size: 1.15rem; max-width: 850px; color: var(--text-muted); margin-bottom: 25px; }
+
+        /* Timeline (Education) */
+        .timeline { border-left: 2px solid var(--border-color); padding-left: 20px; margin-left: 10px; }
+        .timeline-item { position: relative; margin-bottom: 30px; }
+        .timeline-item::before { content: ''; position: absolute; width: 14px; height: 14px; background: var(--accent-color); border-radius: 50%; left: -28px; top: 5px; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
+        .timeline-item h3 { color: #fff; font-size: 1.4rem; margin-bottom: 5px; }
+        .timeline-item h4 { color: var(--accent-color); font-size: 1.1rem; font-weight: 500; margin-bottom: 10px; }
+        .timeline-item p { color: var(--text-muted); font-size: 1rem; }
+
+        /* Services Grid */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .service-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 30px 25px; transition: 0.3s; text-align: center; }
+        .service-card:hover { transform: translateY(-7px); border-color: var(--accent-color); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 15px; display: inline-block; }
+        .service-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.3rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Skills Section */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .skills-category { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 25px; }
+        .skills-category { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; }
         .skills-category h3 { color: #fff; margin-bottom: 20px; border-bottom: 1px solid var(--accent-color); padding-bottom: 5px; display: inline-block;}
         .skills-list { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-tag { background: rgba(106, 27, 41, 0.15); border: 1px solid var(--border-color); padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; color: #fff; }
+        .skill-tag { background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; color: var(--text-main); transition: 0.3s; }
+        .skill-tag:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        /* Projects Section */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; }
         .project-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 30px; transition: 0.3s; position: relative; }
         .project-card:hover { transform: translateY(-7px); border-color: var(--accent-color); }
         .project-card h3 { color: #fff; margin-bottom: 15px; font-size: 1.6rem; }
         .project-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1rem; }
-        .embedded-table-container { display: none; margin-top: 40px; background: #fff; border-radius: 8px; color: #333; padding: 20px; overflow-x: auto; font-size: 0.9rem; }
-        .embedded-table-container h4 { color: #6a1b29; margin-bottom: 15px; text-align: center; }
-        .embedded-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .embedded-table th, .embedded-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        .embedded-table th { background-color: #f2f2f2; color: #555; font-weight: bold; }
-        .embedded-table tr:nth-child(even) { background-color: #f9f9f9; }
-        .embedded-table .status-pass { color: green; font-weight: bold; }
-        #contact .rosha-text { font-size: 1.3rem; color: #fff; margin-bottom: 30px; font-style: italic; max-width: 800px; border-left: 3px solid var(--accent-color); padding-left: 15px; }
-        .contact-links { display: flex; flex-direction: column; gap: 15px; font-size: 1.25rem; }
-        .contact-links a { display: flex; align-items: center; gap: 12px; color: var(--text-muted); }
-        .contact-links a:hover { color: var(--accent-color); }
-        footer { text-align: center; padding: 30px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
-        .slide-left { opacity: 0; transform: translateX(-80px); transition: all 0.8s ease-out; }
-        .slide-right { opacity: 0; transform: translateX(80px); transition: all 0.8s ease-out; }
-        .slide-up { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-        .show { opacity: 1; transform: translateX(0) translateY(0); }
+
+        /* Embedded Table Style */
+        .embedded-table-container { display: none; margin-top: 30px; background: var(--card-bg); border-radius: 8px; padding: 20px; overflow-x: auto; font-size: 0.95rem; border: 1px solid var(--border-color); }
+        .embedded-table-container h4 { color: var(--accent-color); margin-bottom: 15px; text-align: center; }
+        .embedded-table { width: 100%; border-collapse: collapse; min-width: 600px; color: var(--text-main); }
+        .embedded-table th, .embedded-table td { border: 1px solid var(--border-color); padding: 12px; text-align: left; }
+        .embedded-table th { background-color: rgba(59, 130, 246, 0.1); color: var(--accent-color); font-weight: bold; }
+        .embedded-table tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.02); }
+        .embedded-table .status-pass { color: #10b981; font-weight: bold; }
+
+        /* Contact Section */
+        #contact .rosha-text { font-size: 1.3rem; color: #fff; margin-bottom: 30px; font-style: italic; max-width: 800px; border-left: 3px solid var(--accent-color); padding-left: 15px; background: rgba(59, 130, 246, 0.05); padding: 15px; border-radius: 0 8px 8px 0; }
+        .contact-links { display: flex; flex-direction: column; gap: 15px; font-size: 1.2rem; }
+        .contact-links a { display: flex; align-items: center; gap: 12px; color: var(--text-muted); transition: 0.3s; }
+        .contact-links a:hover { color: var(--accent-color); transform: translateX(5px); }
+
+        /* Footer */
+        footer { text-align: center; padding: 30px; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; background: var(--bg-color); }
+
+        /* Animations */
+        .slide-up { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .show { opacity: 1; transform: translateY(0); }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             nav { padding: 15px 5%; }
-            #hero { flex-direction: column; text-align: center; padding-top: 60px; }
+            nav ul { display: none; }
+            #hero { flex-direction: column; text-align: center; padding-top: 40px; }
             #hero .hero-content { order: 2; text-align: center; }
             #hero h1 { font-size: 3rem; }
-            #hero img { width: 220px; height: 220px; margin-top: -30px; order: 1;}
+            #hero img { width: 220px; height: 220px; margin-top: 0; order: 1;}
             .btn-group { justify-content: center; flex-wrap: wrap; }
-            section { padding: 70px 5% 50px; }
+            section { padding: 60px 5% 40px; min-height: auto; }
             .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
     <nav>
         <div class="logo">Habiba Sallam</div>
         <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#services">Services</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#projects">Work</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
     <section id="hero">
-        <div class="hero-content slide-left">
+        <div class="hero-content slide-up">
             <h1>Hi, I'm Habiba Sallam.</h1>
             <h2>Software QA Engineer <br> <span>(Actually, I engineer things too)</span></h2>
             <div class="usp">"Finding Bugs before They Find You."</div>
@@ -97,20 +145,64 @@
                 <a href="cv.pdf" class="btn secondary" target="_blank">View CV</a>
             </div>
         </div>
-        <div class="hero-image-container slide-right">
+        <div class="hero-image-container slide-up">
             <img src="profile.jpeg" onerror="this.onerror=null; this.src='profile.jpg';" alt="Habiba Sallam Photo" />
         </div>
     </section>
+
     <section id="about">
-        <h2 class="section-title slide-left">About Me</h2>
+        <h2 class="section-title slide-up">About Me</h2>
         <div class="slide-up">
             <p>I am a dedicated Computer Science and Engineering student who sees quality assurance not just as a final check, but as a proactive engineering practice built into the development lifecycle.</p>
             <p>Currently advancing my technical expertise through the Digital Egypt Pioneers Initiative (DEPI) in the Software Testing track, I excel at designing precise test cases, executing thorough manual tests, and discovering critical defects.</p>
             <p>Beyond testing, my leadership role as Vice Head of HR at IEEE Menoufia Student Branch has sharpened my interpersonal skills—making me highly effective in team collaboration, conflict resolution, and Agile task management. I am ready to bring this blend of technical rigor and interpersonal effectiveness to freelance projects and testing teams.</p>
         </div>
     </section>
+
+    <section id="education">
+        <h2 class="section-title slide-up">Education & Training</h2>
+        <div class="timeline slide-up">
+            <div class="timeline-item">
+                <h3>B.Sc. in Computer Science and Engineering</h3>
+                <h4>Faculty of Electronic Engineering (FEE) - Menoufia University</h4>
+                <p>Expected Graduation: 2029 <br> Building a strong foundation in software engineering, data structures, computer organization, and algorithms to understand how software works under the hood.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Digital Egypt Pioneers Initiative (DEPI)</h3>
+                <h4>Software Testing Track</h4>
+                <p>Currently advancing my practical expertise in Software Quality Assurance. Intensive training focusing on STLC, agile methodologies, test case creation, and executing thorough manual testing scenarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title slide-up">What I Can Do For You</h2>
+        <div class="services-grid">
+            <div class="service-card slide-up">
+                <div class="service-icon">🔍</div>
+                <h3>Manual Testing</h3>
+                <p>Thorough functional and non-functional testing for web and mobile applications to ensure every feature works exactly as intended.</p>
+            </div>
+            <div class="service-card slide-up">
+                <div class="service-icon">📝</div>
+                <h3>QA Documentation</h3>
+                <p>Writing precise, comprehensive Test Scenarios, Test Cases, and clear Bug Reports that developers can easily understand and fix.</p>
+            </div>
+            <div class="service-card slide-up">
+                <div class="service-icon">💡</div>
+                <h3>UI/UX Testing</h3>
+                <p>Evaluating the user interface and overall experience to ensure the application is intuitive, responsive, and user-friendly.</p>
+            </div>
+            <div class="service-card slide-up">
+                <div class="service-icon">🤝</div>
+                <h3>Agile Collaboration</h3>
+                <p>Leveraging my HR and leadership experience to communicate effectively with development teams, track tasks via Jira/Trello, and ensure smooth project delivery.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="skills">
-        <h2 class="section-title slide-left">Core Competencies</h2>
+        <h2 class="section-title slide-up">Core Competencies</h2>
         <div class="skills-grid">
             <div class="skills-category slide-up">
                 <h3>Technical Skills</h3>
@@ -138,8 +230,9 @@
             </div>
         </div>
     </section>
+
     <section id="projects">
-        <h2 class="section-title slide-left">Test Scenarios</h2>
+        <h2 class="section-title slide-up">Featured Work</h2>
         <div class="projects-grid">
             <div class="project-card slide-up">
                 <h3>Login Page Test Cases</h3>
@@ -147,29 +240,61 @@
                 <button class="btn secondary" style="width: 100%;" onclick="toggleTestTable()">View Test Cases Table</button>
             </div>
         </div>
+
         <div class="embedded-table-container" id="testCasesTable">
             <h4>[Sample] Login Module Test Cases</h4>
             <table class="embedded-table">
                 <thead>
-                    <tr><th>TC ID</th><th>Test Scenario</th><th>Test Steps</th><th>Expected Result</th><th>Status</th></tr>
+                    <tr>
+                        <th>TC ID</th>
+                        <th>Test Scenario</th>
+                        <th>Test Steps</th>
+                        <th>Expected Result</th>
+                        <th>Status</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>TC_01</td><td>Verify Valid Login</td><td>1. Enter valid username<br>2. Enter valid password<br>3. Click Login</td><td>User successfully directed to the homepage.</td><td class="status-pass">PASS</td></tr>
-                    <tr><td>TC_02</td><td>Verify Empty Fields</td><td>1. Leave both fields empty<br>2. Click Login</td><td>System displays validation errors for both fields.</td><td class="status-pass">PASS</td></tr>
-                    <tr><td>TC_03</td><td>Verify Invalid Password</td><td>1. Enter valid username<br>2. Enter invalid password<br>3. Click Login</td><td>System displays "Incorrect credentials" message.</td><td class="status-pass">PASS</td></tr>
-                    <tr><td>TC_04</td><td>Boundary: Long Password</td><td>1. Enter valid username<br>2. Enter password matching max length<br>3. Click Login</td><td>Login successful (if credentials match).</td><td class="status-pass">PASS</td></tr>
+                    <tr>
+                        <td>TC_01</td>
+                        <td>Verify Valid Login</td>
+                        <td>1. Enter valid username<br>2. Enter valid password<br>3. Click Login</td>
+                        <td>User successfully directed to the homepage.</td>
+                        <td class="status-pass">PASS</td>
+                    </tr>
+                    <tr>
+                        <td>TC_02</td>
+                        <td>Verify Empty Fields</td>
+                        <td>1. Leave both fields empty<br>2. Click Login</td>
+                        <td>System displays validation errors for both fields.</td>
+                        <td class="status-pass">PASS</td>
+                    </tr>
+                    <tr>
+                        <td>TC_03</td>
+                        <td>Verify Invalid Password</td>
+                        <td>1. Enter valid username<br>2. Enter invalid password<br>3. Click Login</td>
+                        <td>System displays "Incorrect credentials" message.</td>
+                        <td class="status-pass">PASS</td>
+                    </tr>
+                    <tr>
+                        <td>TC_04</td>
+                        <td>Boundary: Long Password</td>
+                        <td>1. Enter valid username<br>2. Enter password matching max length<br>3. Click Login</td>
+                        <td>Login successful (if credentials match).</td>
+                        <td class="status-pass">PASS</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </section>
+
     <section id="contact">
-        <h2 class="section-title slide-left">Let's Talk Quality</h2>
+        <h2 class="section-title slide-up">Let's Connect</h2>
         <div class="slide-up">
             <p class="rosha-text">
                 Want to make sure your app doesn't crash and burn in production? Need someone to dissect your software and hunt down every last bug? Let's connect. I break your code today, so your users don't have to tomorrow.
             </p>
-            <p style="color: var(--text-muted); margin-bottom: 30px; max-width: 600px;">
-                Open to manual/automated testing freelance opportunities, part-time QA roles, or collaborative engineering projects.
+            <p style="font-size: 1.1rem; max-width: 600px; color: var(--text-muted); margin-bottom: 25px;">
+                Open to manual testing freelance opportunities, part-time QA roles, or collaborative engineering projects.
             </p>
             <div class="contact-links">
                 <a href="mailto:habibasallam411@gmail.com" target="_blank">✉️ habibasallam411@gmail.com</a>
@@ -178,21 +303,24 @@
             </div>
         </div>
     </section>
+
     <footer>
         &copy; 2026 Habiba Sallam. Built with precision and a continuous QA mindset ☕.
     </footer>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            document.querySelectorAll('nav ul li a, #hero .btn').forEach(anchor => {
+            // Smooth Scroll
+            document.querySelectorAll('nav ul li a, .btn[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
-                    if (this.getAttribute('href').startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href').substring(1);
-                        document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-                    }
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
                 });
             });
-            const animElements = document.querySelectorAll('.slide-left, .slide-right, .slide-up');
+
+            // Intersection Observer for Animations
+            const animElements = document.querySelectorAll('.slide-up');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) { entry.target.classList.add('show'); }
@@ -200,12 +328,16 @@
             }, { threshold: 0.1 });
             animElements.forEach(el => observer.observe(el));
         });
+
+        // Function to toggle the test cases table visibility
         function toggleTestTable() {
             var tableContainer = document.getElementById("testCasesTable");
             if (tableContainer.style.display === "none" || tableContainer.style.display === "") {
                 tableContainer.style.display = "block";
                 tableContainer.scrollIntoView({ behavior: 'smooth' });
-            } else { tableContainer.style.display = "none"; }
+            } else {
+                tableContainer.style.display = "none";
+            }
         }
     </script>
 </body>
